@@ -14,4 +14,10 @@ app.use(express.urlencoded({extended: true, limit: "16kb"})) // middleware for p
 app.use(express.static("public")) //middleware for keeping files in public folder
 app.use(cookieParser()) // middleware to perform crud operation on cookie of browser
 
+//Routes import
+import userRouter from './routes/user.routes.js'
+
+//routes declaration
+app.use("/api/v1/users", userRouter)
+
 export { app }
