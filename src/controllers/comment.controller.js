@@ -10,7 +10,7 @@ const getVideoComments = asyncHandler(async (req, res) => {
     const {videoId} = req.params
     const {page = 1, limit = 10} = req.query
 
-    const video = Video.findById(videoId)
+    const video = await Video.findById(videoId)
     if(!video) {
         throw new ApiError(400, "Video not found")
     }
@@ -164,5 +164,5 @@ export {
     getVideoComments, 
     addComment, 
     updateComment,
-     deleteComment
+    deleteComment
     }
